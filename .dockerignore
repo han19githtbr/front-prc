@@ -1,0 +1,10 @@
+.git
+.idea
+node_modules
+dist
+build
+.env
+.env.*
+Dockerfile
+docker-compose.yml
+README.md

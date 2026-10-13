@@ -1,0 +1,103 @@
+:root {
+  --green-900: #072a1a;
+  --green-800: #123b2b;
+  --green-700: #0f5f40;
+  --green-600: #157a55;
+  --ink: #16241d;
+  --muted: #5d6a63;
+  --placeholder: #9aa5a0;
+  --line: #dde3e0;
+  --surface: #ffffff;
+  --page: #f3f6f5;
+  --danger: #c0392b;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  --radius: 0.625rem;
+  --font: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* Logo (ícone + nome) — usado na abertura e no login */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo__mark {
+  width: var(--logo-mark, 5rem);
+  height: var(--logo-mark, 5rem);
+  display: block;
+}
+
+.logo__word {
+  font-size: var(--logo-word, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--green-900);
+}
+
+.logo--splash {
+  --logo-mark: clamp(4.5rem, 21vw, 7rem);
+  --logo-word: clamp(2.25rem, 10.4vw, 3.75rem);
+  gap: clamp(0.5rem, 1.6dvh, 1rem);
+}
+
+.logo--login {
+  --logo-mark: 4rem;
+  --logo-word: clamp(1.9rem, 8vw, 2.2rem);
+  gap: 0.375rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--green-600);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

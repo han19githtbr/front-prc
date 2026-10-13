@@ -1,0 +1,391 @@
+/* ---------- Mobile (base) — igual ao print ---------- */
+.login {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: block;
+  background: var(--surface);
+}
+
+.login__hero {
+  display: none;
+}
+
+.login__panel {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--space-8) + env(safe-area-inset-top)) var(--space-6)
+    calc(var(--space-8) + env(safe-area-inset-bottom));
+}
+
+.login__card {
+  width: 100%;
+  max-width: 26rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.login__card > .logo {
+  align-self: center;
+  margin-bottom: var(--space-8);
+}
+
+.login__header {
+  margin-bottom: var(--space-5);
+}
+
+.login__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.login__subtitle {
+  margin: 0.375rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Campos */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4375rem;
+}
+
+.field__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field__control {
+  position: relative;
+}
+
+.field__input {
+  width: 100%;
+  height: 3rem;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1rem; /* 16px evita zoom automático no iOS */
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field__input::placeholder {
+  color: var(--placeholder);
+}
+
+.field__input:hover {
+  border-color: #c7d0cc;
+}
+
+.field__input:focus {
+  outline: none;
+  border-color: var(--green-600);
+  box-shadow: 0 0 0 3px rgb(21 122 85 / 0.18);
+}
+
+.field__input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.field__input[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 3px rgb(192 57 43 / 0.16);
+}
+
+.field__input--with-action {
+  padding-right: 3rem;
+}
+
+.field__action {
+  position: absolute;
+  top: 50%;
+  right: 0.375rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.field__action:hover {
+  background: #eef2f0;
+}
+
+.field__error {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--danger);
+}
+
+/* Lembrar de mim + Esqueceu a senha */
+.login__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: 0.125rem;
+}
+
+.check {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.check__input {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.check__box {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border: 1.5px solid #b9c4bf;
+  border-radius: 0.3125rem;
+  background: var(--surface);
+  color: #fff;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.check__box svg {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  opacity: 0;
+}
+
+.check__input:checked + .check__box {
+  border-color: var(--green-700);
+  background: var(--green-700);
+}
+
+.check__input:checked + .check__box svg {
+  opacity: 1;
+}
+
+.check__input:focus-visible + .check__box {
+  outline: 2px solid var(--green-600);
+  outline-offset: 2px;
+}
+
+.login__link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--green-700);
+  text-decoration: none;
+}
+
+.login__link:hover {
+  text-decoration: underline;
+}
+
+.login__link--strong {
+  font-weight: 700;
+}
+
+.login__alert {
+  margin: 0;
+  padding: 0.75rem var(--space-4);
+  border-radius: var(--radius);
+  background: #fdecea;
+  color: #8f2a1f;
+  font-size: 0.875rem;
+}
+
+.login__submit {
+  height: 3.125rem;
+  margin-top: 0.375rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--green-700);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.login__submit:hover:not(:disabled) {
+  background: #0b5236;
+}
+
+.login__submit:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.login__submit:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.login__submit:focus-visible {
+  outline: 3px solid rgb(21 122 85 / 0.4);
+  outline-offset: 2px;
+}
+
+/* ou + social */
+.login__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-6) 0 var(--space-5);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.login__divider::before,
+.login__divider::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: var(--line);
+}
+
+.login__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.social {
+  flex: 0 0 clamp(5.5rem, 31%, 7.5rem);
+  height: 2.875rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.social:hover {
+  border-color: #c7d0cc;
+  background: #f7f9f8;
+}
+
+.social svg {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.login__signup {
+  margin: var(--space-6) 0 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* ---------- Tablet: cartão centralizado ---------- */
+@media (min-width: 600px) {
+  .login {
+    background:
+      linear-gradient(rgb(243 246 245 / 0.82), rgb(243 246 245 / 0.82)),
+      url('../../assets/splash-bg.jpg') center 55% / cover no-repeat;
+  }
+
+  .login__card {
+    padding: var(--space-8) 2.5rem 2.25rem;
+    border-radius: 1.25rem;
+    background: var(--surface);
+    box-shadow: 0 18px 50px rgb(7 42 26 / 0.12);
+  }
+}
+
+/* ---------- Desktop: foto à esquerda, formulário à direita ---------- */
+@media (min-width: 960px) {
+  .login {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    background: var(--surface);
+  }
+
+  .login__hero {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(4rem, 14dvh, 8rem) var(--space-8) 0;
+    background: url('../../assets/splash-bg.jpg') center 55% / cover no-repeat;
+  }
+
+  .login__hero-text {
+    margin: 0;
+    font-size: clamp(1.25rem, 1.9vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--green-800);
+  }
+
+  .login__panel {
+    padding: var(--space-8) clamp(2rem, 5vw, 5rem);
+  }
+
+  .login__card {
+    max-width: 25rem;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+@media (min-width: 1600px) {
+  .login__card {
+    max-width: 27rem;
+  }
+}
+
+/* Telas baixas (celular na horizontal): aperta o espaçamento vertical */
+@media (max-height: 640px) {
+  .login__panel {
+    align-items: flex-start;
+  }
+
+  .login__card > .logo {
+    margin-bottom: var(--space-5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field__input,
+  .check__box,
+  .login__submit,
+  .social {
+    transition: none;
+  }
+}
